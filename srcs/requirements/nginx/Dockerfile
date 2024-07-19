@@ -2,8 +2,7 @@
 FROM debian:11.9
 
 # Update package lists and install nginx and openssl
-RUN apt-get -y update && \
-    apt-get install -y nginx openssl
+RUN apt-get -y update && apt-get install -y nginx openssl
 
 # Expose port 443 for HTTPS traffic
 EXPOSE 443
