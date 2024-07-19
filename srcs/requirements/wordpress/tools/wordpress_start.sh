@@ -1,4 +1,10 @@
-#! /bin/bash
+#!/bin/sh
+
+echo "Waiting for database to be ready..."
+while ! nc -z $DB_HOST 3306; do   
+  sleep 1 # wait for 1 second before check again
+done
+echo "Database is ready!"
 
 #Check if php-fpm configuration file exists (it should after installing php-fpm), we then replace line starting by "listen = " for "listen = 0.0.0.0:9000" so it will be listening to requests from port 9000. 
 if [ -f /etc/php/7.4/fpm/pool.d/www.conf ]; then
