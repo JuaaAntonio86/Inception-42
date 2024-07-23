@@ -3,7 +3,7 @@ FROM debian:11.9
 EXPOSE 9000
 
 RUN apt-get update -y && \
-	apt-get install -y curl php7.4-mysql php7.4-fpm
+	apt-get install -y curl php7.4-mysql php7.4-fpm netcat
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
 	chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp

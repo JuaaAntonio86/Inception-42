@@ -27,8 +27,8 @@ clean:
 	@if [ ! -z "$$(docker network ls -q --filter type=custom)" ]; then \
 		docker network rm $$(docker network ls -q --filter type=custom); \
 	fi
-	rm -rf /home/$(USER)/data/wordpress
-	rm -rf /home/$(USER)/data/mariadb
+	sudo rm -rf /home/$(USER)/data/wordpress
+	sudo rm -rf /home/$(USER)/data/mariadb
 	@echo "$(GREEN)Deleted all docker containers, volumes, networks, and images succesfully$(END)"
 
 re: clean all
